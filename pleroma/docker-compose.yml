@@ -1,21 +1,25 @@
-version: '3.1'
-
 services:
   pleroma:
     image: git.pleroma.social:5050/pleroma/pleroma:latest
     container_name: "pleroma"
     hostname: "pleroma"
-    labels:
-      - "org.label-schema.group=pleroma"
     restart: always
     env_file: ./environments/pleroma/pleroma.env
+    environment:
+      VIRTUAL_HOST: pl.autumnsky.jp
+      LETSENCRYPT_HOST: pl.autumnsky.jp
     depends_on:
       - pleroma-db
     ports:
-      - "127.0.0.1:4000:4000"
+      - "4000:4000"
     volumes:
       - ./volumes/pleroma/config.exs:/var/lib/pleroma/config.exs
       - ./volumes/pleroma/uploads:/var/lib/pleroma/uploads
+    networks:
+      default:
+      reverse-proxy-network:
+        aliases:
+          - pleroma
 
   pleroma-db:
     image: postgres:12.1-alpine
@@ -32,3 +36,9 @@ services:
       - ./volumes/pleroma-db/pgdata:/var/lib/postgresql/data
       - ./volumes/pleroma-db/pginit:/docker-entrypoint-initdb.d
 
+    networks:
+      default:
+
+networks:
+  reverse-proxy-network:
+    external: true
