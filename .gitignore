@@ -1,5 +1,10 @@
 *.env
 *.sql
+*.pgdump
 
 wordpress/db/
 wordpress/html/
+
+pleroma/volumes/
+pleroma/environments/
+!.gitkeep
