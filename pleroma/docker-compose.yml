@@ -15,6 +15,7 @@ services:
     volumes:
       - ./volumes/pleroma/config.exs:/var/lib/pleroma/config.exs
       - ./volumes/pleroma/uploads:/var/lib/pleroma/uploads
+      - ./volumes/pleroma/static:/var/lib/pleroma/static
     networks:
       default:
       reverse-proxy-network:
