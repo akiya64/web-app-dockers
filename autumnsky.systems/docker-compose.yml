@@ -1,0 +1,19 @@
+services:
+  autumnsky_systems:
+    image: nginx
+    container_name: autumnsky_systems
+    restart: always
+    environment:
+      VIRTUAL_HOST: autumnsky.systems
+      LETSENCRYPT_HOST: autumnsky.systems
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+      - ./server.conf:/etc/nginx/conf.d/server.conf:ro
+    networks:
+      reverse-proxy-network:
+        aliases:
+          - autumnsky_systems
+
+networks:
+  reverse-proxy-network:
+    external: true
