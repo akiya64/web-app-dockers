@@ -22,8 +22,8 @@ services:
       WORDPRESS_DB_NAME: $WP_DB_NAME
       WORDPRESS_DB_USER: $WP_DB_USER
       WORDPRESS_DB_PASSWORD: $WP_DB_PASS
-      VIRTUAL_HOST: autumnsky.jp
-      LETSENCRYPT_HOST: autumnsky.jp
+      VIRTUAL_HOST: blog.autumnsky.jp
+      LETSENCRYPT_HOST: blog.autumnsky.jp
     volumes:
       - ./html:/var/www/html
     networks:
