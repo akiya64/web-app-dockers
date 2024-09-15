@@ -5,8 +5,8 @@
 wordpress/db/
 wordpress/html/
 
-pleroma/volumes/
-pleroma/environments/
+gitea/postgres/
+gitea/data/
 
 autumnsky.systems/html/
 
