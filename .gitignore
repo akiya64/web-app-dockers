@@ -7,6 +7,7 @@ wordpress/html/
 
 gitea/postgres/
 gitea/data/
+gitea/config/app.ini
 
 autumnsky.systems/html/
 
