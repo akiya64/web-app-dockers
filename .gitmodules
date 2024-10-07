@@ -1,3 +1,0 @@
-[submodule "docker-akkoma"]
-	path = docker-akkoma
-	url = https://github.com/akiya64/docker-akkoma

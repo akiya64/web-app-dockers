@@ -1,0 +1,5 @@
+uploads/
+postgres/
+static/*/
+config/
+db.env
