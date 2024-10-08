@@ -1,31 +1,47 @@
 services:
-  mysql:
-    image: mysql
-    container_name: mysql
+  db:
+    image: mariadb:latest
     restart: always
+    ports:
+      - 3306:3306
     environment:
-      MYSQL_DATABASE: $WORDPRESS_DB_NAME
-      MYSQL_USER: $WP_DB_USER
-      MYSQL_PASSWORD: $WP_DB_PASS
-      MYSQL_RANDOM_ROOT_PASSWORD: yes
+      MARIADB_DATABASE: ${DB_NAME:-exampledb}
+      MARIADB_USER: ${DB_USER:-exampleuser}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-examplepass}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-examplepass}
     volumes:
       - ./db:/var/lib/mysql
     networks:
       default:
 
   wordpress:
-    image: wordpress
+    image: stephenmiracle/frankenwp:0.1.0
     container_name: wordpress
     restart: always
+    # ports:
+      # - 8094:80 # HTTP
+      # - 80:80 # HTTP
+      # - 443:443 # HTTPS
+      # - 443:443/udp" # HTTP/3
     environment:
-      WORDPRESS_DB_HOST: mysql
-      WORDPRESS_DB_NAME: $WP_DB_NAME
-      WORDPRESS_DB_USER: $WP_DB_USER
-      WORDPRESS_DB_PASSWORD: $WP_DB_PASS
+      WORDPRESS_DB_HOST: ${DB_HOST:-db}
+      WORDPRESS_DB_USER: ${DB_USER:-exampleuser}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-examplepass}
+      WORDPRESS_DB_NAME: ${DB_NAME:-exampledb}
+      WORDPRESS_DEBUG: ${WP_DEBUG:-true}
+      WORDPRESS_TABLE_PREFIX: ${DB_TABLE_PREFIX:-wp_}
+      CACHE_AGE: ${CACHE_AGE:-8000}
+      STATIC_CACHE_AGE: ${STATIC_CACHE_AGE:-8000}
+      CADDY_GLOBAL_OPTIONS: |
+        email autumnsky64@gmail.com
+        auto_https disable_redirects
+      SERVER_NAME: :8094
       VIRTUAL_HOST: blog.autumnsky.jp
+      VIRTUAL_PORT: 8094
       LETSENCRYPT_HOST: blog.autumnsky.jp
+
     volumes:
-      - ./html:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
     networks:
       default:
       reverse-proxy-network:

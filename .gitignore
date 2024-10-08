@@ -3,7 +3,7 @@
 *.pgdump
 
 wordpress/db/
-wordpress/html/
+wordpress/wp-content/
 
 gitea/postgres/
 gitea/data/
