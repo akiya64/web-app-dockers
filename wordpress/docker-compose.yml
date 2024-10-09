@@ -15,7 +15,7 @@ services:
       default:
 
   wordpress:
-    image: stephenmiracle/frankenwp:0.1.0
+    image: stephenmiracle/frankenwp:beta-1.0.0
     container_name: wordpress
     restart: always
     # ports:
@@ -30,8 +30,6 @@ services:
       WORDPRESS_DB_NAME: ${DB_NAME:-exampledb}
       WORDPRESS_DEBUG: ${WP_DEBUG:-true}
       WORDPRESS_TABLE_PREFIX: ${DB_TABLE_PREFIX:-wp_}
-      CACHE_AGE: ${CACHE_AGE:-8000}
-      STATIC_CACHE_AGE: ${STATIC_CACHE_AGE:-8000}
       CADDY_GLOBAL_OPTIONS: |
         email autumnsky64@gmail.com
         auto_https disable_redirects
