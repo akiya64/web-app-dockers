@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:14-alpine
-    container_name: akkoma_db
+    container_name: akkoma-db
     restart: always
     healthcheck:
       test: [ "CMD", "pg_isready", "-q", "-U", "akkoma" ]
@@ -13,13 +13,13 @@ services:
 
   web:
     image: akkoma
-    container_name: akkoma_web
+    container_name: akkoma
     healthcheck:
       test: [ "CMD-SHELL", "wget -q --spider --proxy=off localhost:4001 || exit 1" ]
     restart: always
     ports:
       # Remove this if you're not exposing this to your local network
-      - '4001:4000'
+      - '4000:4000'
     build:
       context: build
       # Feel free to remove or override this section. The variables set below are
@@ -27,7 +27,7 @@ services:
       args:
         - "UID=1000"
         - "GID=1000"
-        - "AKKOMA_VER=v3.10.2"
+        - "AKKOMA_VER=v3.13.2"
     volumes:
       - ./uploads:/uploads
       - ./static:/static

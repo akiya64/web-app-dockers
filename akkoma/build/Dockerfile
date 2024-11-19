@@ -41,6 +41,8 @@ RUN echo "import Mix.Config" > config/prod.secret.exs \
 # Need to investigate using mix release to avoid needing to recompile
 # on startup. It breaks Akkoma currently from a quick test.
 
+RUN chmod ugo+rw /opt/app/lib/tzdata-1.1.1/priv/*
+
 COPY ./config.exs /akkoma/config/prod.exs
 
 EXPOSE 4000
