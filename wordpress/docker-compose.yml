@@ -1,45 +1,33 @@
 services:
   db:
     image: mariadb:latest
+    container_name: mariadb
     restart: always
     ports:
       - 3306:3306
     environment:
-      MARIADB_DATABASE: ${DB_NAME:-exampledb}
-      MARIADB_USER: ${DB_USER:-exampleuser}
-      MARIADB_PASSWORD: ${DB_PASSWORD:-examplepass}
-      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-examplepass}
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
       - ./db:/var/lib/mysql
     networks:
       default:
 
   wordpress:
-    image: stephenmiracle/frankenwp:beta-1.0.0
+    image: wordpress
     container_name: wordpress
     restart: always
-    # ports:
-      # - 8094:80 # HTTP
-      # - 80:80 # HTTP
-      # - 443:443 # HTTPS
-      # - 443:443/udp" # HTTP/3
     environment:
-      WORDPRESS_DB_HOST: ${DB_HOST:-db}
-      WORDPRESS_DB_USER: ${DB_USER:-exampleuser}
-      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-examplepass}
-      WORDPRESS_DB_NAME: ${DB_NAME:-exampledb}
-      WORDPRESS_DEBUG: ${WP_DEBUG:-true}
-      WORDPRESS_TABLE_PREFIX: ${DB_TABLE_PREFIX:-wp_}
-      CADDY_GLOBAL_OPTIONS: |
-        email autumnsky64@gmail.com
-        auto_https disable_redirects
-      SERVER_NAME: :8094
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
       VIRTUAL_HOST: blog.autumnsky.jp
-      VIRTUAL_PORT: 8094
       LETSENCRYPT_HOST: blog.autumnsky.jp
-
     volumes:
-      - ./wp-content:/var/www/html/wp-content
+      - ./html:/var/www/html
     networks:
       default:
       reverse-proxy-network:
