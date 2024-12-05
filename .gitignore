@@ -1,9 +1,8 @@
+!.gitkeep
+
 *.env
 *.sql
 *.pgdump
-
-wordpress/db/
-wordpress/wp-content/
 
 gitea/postgres/
 gitea/data/
@@ -11,4 +10,8 @@ gitea/config/app.ini
 
 autumnsky.systems/html/
 
-!.gitkeep
+wordpress/db/
+wordpress/html/wp-config.php
+wordpress/html/wp-content/*
+!wordpress/html/wp-content/plugins/
+!wordpress/html/wp-content/themes/

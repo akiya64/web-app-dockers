@@ -1,0 +1,300 @@
+/* Sakura.css v1.5.0
+ * ================
+ * Minimal css theme.
+ * Project: https://github.com/oxalorg/sakura/
+ */
+/* Body */
+html {
+  font-size: 62.5%;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  width: calc(100vw - 2.5em);
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin: auto;
+  color: #222222;
+}
+
+@media (max-width: 684px) {
+  body {
+    font-size: 1.53rem;
+  }
+}
+@media (max-width: 382px) {
+  body {
+    font-size: 1.35rem;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.4;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-weight: 500;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+}
+
+h1 {
+  font-size: 2.35em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+p {
+  margin-top: 0px;
+  margin-bottom: 2.5rem;
+}
+
+small, sub, sup {
+  font-size: 75%;
+}
+
+hr {
+  border-color: #257bcc;
+}
+
+/*
+a {
+    text-decoration: none;
+    color: $color-blossom;
+
+    &:visited {
+        color: darken($color-blossom, 10%);
+    }
+
+    &:hover {
+        color: $color-fade;
+    }
+}
+*/
+ul {
+  padding-left: 1.4em;
+  margin-top: 0px;
+  margin-bottom: 2.5rem;
+}
+
+li {
+  margin-bottom: 0.4em;
+}
+
+blockquote {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 1em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-right: 0.8em;
+  border-left: 5px solid #257bcc;
+  margin-bottom: 2.5rem;
+  background-color: #f7f7f7;
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+img, video {
+  height: auto;
+  max-width: 100%;
+  margin-top: 0px;
+  margin-bottom: 2.5rem;
+}
+
+/* Pre and Code */
+pre {
+  background-color: #f7f7f7;
+  display: block;
+  padding: 1em;
+  overflow-x: auto;
+  margin-top: 0px;
+  margin-bottom: 2.5rem;
+  font-size: 0.9em;
+}
+
+code, kbd, samp {
+  font-size: 0.9em;
+  padding: 0.2em 0.5em;
+  background-color: #efefef;
+  white-space: pre-wrap;
+  border-radius: 0.2em;
+}
+
+pre > code {
+  padding: 0;
+  background-color: transparent;
+  white-space: pre;
+  font-size: 1em;
+  border-radius: 0;
+}
+
+/* Tables */
+table {
+  text-align: justify;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+td, th {
+  padding: 0.5em;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+/* Buttons, forms and input */
+/*
+input, textarea {
+    border: 1px solid $color-text;
+
+    &:focus {
+        border: 1px solid $color-blossom;
+    }
+}
+
+textarea {
+    width: 100%;
+}
+
+.button, button, input[type="submit"], input[type="reset"], input[type="button"], input[type=file]::file-selector-button {
+    display: inline-block;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+
+    background-color: $color-blossom;
+    color: $color-bg;
+    border-radius: 1px;
+    border: 1px solid $color-blossom;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &[disabled] {
+        cursor: default;
+        opacity: .5;
+    }
+
+    &:hover {
+        background-color: $color-fade;
+        color: $color-bg;
+        outline: 0;
+    }
+
+    &:focus-visible {
+        outline-style: solid;
+        outline-width: 2px;
+    }
+}
+
+textarea, select, input {
+    color: $color-text;
+    padding: 6px 10px; // The 6px vertically centers text on FF, ignored by Webkit
+    margin-bottom: 10px;
+    background-color: $color-bg-alt;
+    border: 1px solid $color-bg-alt;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+
+    &:focus {
+        border: 1px solid $color-blossom;
+        outline: 0;
+    }
+}
+
+input[type="checkbox"]:focus {
+    outline: 1px dotted $color-blossom;
+}
+
+label, legend, fieldset {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+}
+*/
+.wp-site-blocks > header .wp-block-columns {
+  margin: 0;
+}
+@media screen and (max-width: 600px) {
+  .wp-site-blocks > header .wp-block-columns {
+    padding: 1.25rem;
+  }
+}
+@media screen and (min-width: 601px) {
+  .wp-site-blocks > header .wp-block-columns.is-not-stacked-on-mobile > .wp-block-column:has(.wp-block-navigation__responsive-container-content) {
+    flex-grow: 2;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wp-site-blocks > header .wp-block-columns.is-not-stacked-on-mobile > .wp-block-column:has(.wp-block-site-title) {
+    flex-grow: 2;
+  }
+}
+
+.wp-site-blocks {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.wp-site-blocks > footer {
+  margin-top: auto;
+}
+.wp-site-blocks > footer select {
+  color: var(--wp--preset--color--koki-hanada);
+  padding: 1em 2em;
+  background: white;
+  border: 2px solid var(--wp--preset--color--tsuyukusa);
+}
+
+li.wp-block-navigation-item {
+  margin-bottom: 0;
+}
+
+.wp-block-navigation__responsive-container-content {
+  gap: 1em;
+}
+.wp-block-navigation__responsive-container.has-modal-open.is-menu-open {
+  padding: 1.5rem;
+}
+
+.alignfull {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+}
+
+.wp-block-query-pagination-numbers > .page-numbers {
+  display: inline-block;
+  padding: 0 0.5em;
+}
+
+textarea, select, input,
+.wp-block-search__button {
+  border-radius: 5px;
+}
+
+.text-white-rim {
+  text-shadow: 2px 2px 0 #FFF, -2px -2px 0 #FFF, -2px 2px 0 #FFF, 2px -2px 0 #FFF, 0px 2px 0 #FFF, 0 -2px 0 #FFF, -2px 0 0 #FFF, 2px 0 0 #FFF;
+}

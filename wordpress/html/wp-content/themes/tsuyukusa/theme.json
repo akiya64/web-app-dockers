@@ -1,0 +1,178 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"layout": {
+			"contentSize": "720px",
+			"wideSize": "1200px",
+			"blockGap": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"fontFamily": "monofur, sans-serif",
+					"slug": "monofur",
+					"name": "Monofur",
+					"fontFace": [
+						{
+							"fontFamily": "monofur",
+							"src": [
+								"file:./fonts/monofur.woff2",
+								"file:./fonts/monofur.ttf"
+							]
+						}
+					]
+				},
+				{
+					"fontFamily": "IBMPlex Mono, sans-serif",
+					"slug": "ibm-plex-mono",
+					"name": "IBMPlex Mono",
+					"fontFace": [
+						{
+							"fontFamily": "IBMPlex Mono",
+							"src": [
+								"file:./fonts/IBMPlexMono-Regular.woff2",
+								"file:./fonts/IBMPlexMono-Regular.woff"
+							]
+						}
+					]
+				}
+			]
+		},
+		"border": {
+			"radius": true
+		},
+		"color": {
+			"palette": [
+				{
+					"color": "#3d7cce",
+					"name": "露草色 Tsuyukusa",
+					"slug": "tsuyukusa"
+				},
+				{
+					"color": "#21a0db",
+					"name": "月草色 - Tsukikusa",
+					"slug": "tsukikusa"
+				},
+				{
+					"color": "#3a8fb7",
+					"name": "千草色 - Chigusa iro",
+					"slug": "chigurairo"
+				},
+				{
+					"color": "#2b6492",
+					"name": "縹 - Hanada",
+					"slug": "hanada"
+				},
+				{
+					"color": "#dff2fc",
+					"name": "白縹 - Shiro Hanada",
+					"slug": "shiro-hanada"
+				},
+				{
+					"color": "#274765",
+					"name": "深縹 - Koki Hanada",
+					"slug": "koki-hanada"
+				},
+				{
+					"color": "#3f729f",
+					"name": "中縹 - Naka Hanada",
+					"slug": "naka-hanada"
+				},
+				{
+					"color": "#618bad",
+					"name": "次縹 - Tsugi Hanada",
+					"slug": "tsugino-hanada"
+				},
+				{
+					"color": "#873d34",
+					"name": "弁柄色 - Bengara iro",
+					"slug": "bengara"
+				}
+			]
+		}
+	},
+	"templateParts": [
+		{
+			"name": "header",
+			"title": "Site Header",
+			"area": "header"
+		},
+		{
+			"name": "footer",
+			"title": "Site Footer",
+			"area": "footer"
+		}
+	],
+	"styles": {
+		"elements": {
+			"link": {
+				"typography": {
+					"textDecoration": "none"
+				},
+				"color": {
+					"text": "var:preset|color|tsuyukusa"
+				},
+				":hover": {
+					"typography": {
+						"textDecoration": "underline dotted 0.075em"
+					},
+					"color": {
+						"text": "var:preset|color|hanada"
+					}
+				},
+				":visited": {
+					"color": {
+						"text": "var:preset|color|bengara"
+					}
+				}
+			}
+		},
+		"blocks": {
+			"core/code": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|ibm-plex-mono"
+				}
+			},
+			"core/site-title": {
+				"elements" : {
+					"link": {
+						"typography": {
+							"textDecoration": "none"
+						},
+						":hover": {
+							"typography": {
+								"textDecoration": "none"
+							}
+						}
+					}
+				}
+			},
+			"core/cover": {
+				"elements" :{
+					"h1": {
+						"typography": {
+							"fontSize": "clamp(3.5rem, 9.3333vw, 7rem)"
+						}
+					},
+					"h2": {
+						"typography": {
+							"fontSize": "clamp(1.5rem, 1rem + 1.3333vw, 2rem)"
+						}
+					}
+				}
+			}
+		}
+	},
+	"blocks": {
+		"core/avatar": {
+			"border": {
+				"radius": true
+			}
+		}
+	}
+}

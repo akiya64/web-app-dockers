@@ -1,0 +1,58 @@
+<!-- wp:template-part {"slug":"header","theme":"tsuyukusa"} /-->
+
+<!-- wp:columns -->
+<div class="wp-block-columns">
+<!-- wp:column {"layout":{"type":"constrained"}} -->
+<div class="wp-block-column">
+
+<!-- wp:query-title {"type":"archive","showPrefix":false,"style":{"elements":{"link":{"color":{"text":"var:preset|color|naka-hanada"}}},"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}},"textColor":"naka-hanada"} /-->
+
+<!-- wp:query -->
+<div class="wp-block-query">
+
+<!-- wp:post-template {"layout":{"type":"default"}} -->
+
+<!-- wp:post-title {"isLink":true,"style":{"spacing":{"margin":{"right":"0","left":"0","top":"var:preset|spacing|50","bottom":"var:preset|spacing|40"}}}} /-->
+
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group" style="margin-top:0;margin-bottom:0">
+
+<!-- wp:post-date {"textAlign":"left"} /-->
+<!-- wp:post-terms {"term":"category","style":{"elements":{"link":{"color":{"text":"var:preset|color|koki-hanada"}}}},"textColor":"koki-hanada"} /-->
+
+</div>
+<!-- /wp:group -->
+
+<!-- wp:spacer {"height":"var:preset|spacing|40"} -->
+<div style="height:var(--wp--preset--spacing--40)" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"paginationArrow":"chevron","showLabel":false,"fontSize":"medium","layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>投稿がありませんでした。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="/">トップページに戻る</a></p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+
+</div>
+<!-- /wp:query -->
+
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+
+<!-- wp:template-part {"slug":"footer","theme":"tsuyukusa"} /-->
