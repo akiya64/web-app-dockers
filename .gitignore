@@ -4,9 +4,9 @@
 *.sql
 *.pgdump
 
-gitea/postgres/
-gitea/data/
-gitea/config/app.ini
+forgejo/postgres/
+forgejo/data/
+forgejo/config/app.ini
 
 autumnsky.systems/html/
 

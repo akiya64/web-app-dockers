@@ -1,0 +1,47 @@
+services:
+  server:
+    container_name: forgejo
+    image: codeberg.org/forgejo/forgejo:9.0.2-rootless
+    environment:
+      FORGEJO__database__DB_TYPE: postgres
+      FORGEJO__database__HOST: db:5432
+      FORGEJO__database__NAME: $FORGEJO_DB_NAME
+      FORGEJO__database__USER: $FORGEJO_DB_USER
+      FORGEJO__database__PASSWD: $FORGEJO_DB_PASS
+      VIRTUAL_HOST: code.autumnsky.jp
+      VIRTUAL_PORT: 3000
+      LETSENCRYPT_HOST: code.autumnsky.jp
+      LETSENCRYPT_: code.autumnsky.jp
+    restart: always
+    volumes:
+      - ./data:/var/lib/gitea
+      - ./config:/var/lib/gitea/custom/conf
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3000:3000"
+      - "222:22"
+    depends_on:
+      - db
+    networks:
+      default:
+      reverse-proxy-network:
+        aliases:
+          - forgejo
+
+  db:
+    image: postgres:14
+    container_name: forgejo-db
+    restart: always
+    environment:
+      - POSTGRES_USER=$FORGEJO_DB_USER
+      - POSTGRES_PASSWORD=$FORGEJO_DB_PASS
+      - POSTGRES_DB=$FORGEJO_DB_NAME
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    networks:
+      default:
+
+networks:
+  reverse-proxy-network:
+    external: true
