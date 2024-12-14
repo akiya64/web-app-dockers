@@ -17,3 +17,11 @@ docker exec forgejo-db rm /tmp/forgejo.pgdump
 # WordPress
 source /home/akiya/sites/wordpress/.env
 docker exec mariadb sh -c "mariadb-dump --single-transaction -u ${WP_DB_USER} -p${WP_DB_PASSWORD} ${WP_DB_NAME}" > /home/akiya/sites/dump/wp_dump_${TODAY}.sql
+
+# Remove dump
+COUNT=`find /home/akiya/sites/dump/ -type f | wc -l`
+DAY=5
+
+if [[ ${COUNT} -gt $(( ${DAY} * 3 )) ]]; then
+ find /home/akiya/sites/dump/ -mtime +${DAY} -delete
+fi
